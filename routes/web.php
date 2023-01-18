@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\ReminderController;
 use App\Http\Middleware\AdminAuth;
 use App\Models\User;
 use Illuminate\Foundation\Application;
@@ -39,6 +40,8 @@ Route::middleware([
     )->name('dashboard');
     Route::get('horario', [ActivityController::class, 'index'])->name('horario');
     Route::post('horario', [ActivityController::class, 'store'])->name('horario.store');
+    Route::get('/agenda', [ReminderController::class, 'index'])->name('agenda');
+    Route::post('/agenda', [ReminderController::class, 'store'])->name('agenda.store');
 });
 
 Route::middleware([AdminAuth::class])->group(function () {

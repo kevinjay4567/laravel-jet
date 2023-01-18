@@ -66,6 +66,12 @@ const logout = () => {
                   Horario
                 </NavLink>
                 <NavLink
+                  :href="route('agenda')"
+                  :active="route().current('agenda')"
+                >
+                  Agenda
+                </NavLink>
+                <NavLink
                   :href="route('admin')"
                   :active="route().current('admin')"
                   v-if="$page.props.user.role == 'admin'"
