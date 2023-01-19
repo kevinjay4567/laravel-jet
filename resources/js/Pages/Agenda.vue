@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from "../Layouts/AppLayout.vue";
 import PrimaryButton from "../Components/PrimaryButton.vue";
+import ReminderTable from "../Components/ReminderTable.vue";
 import { useForm, usePage, Head } from "@inertiajs/inertia-vue3";
 
 const inertia = usePage().props.value;
@@ -18,6 +19,11 @@ const submit = () => {
 };
 
 defineProps({ reminders: Array });
+const orderReminders = (reminders) => {
+  return reminders.sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  });
+};
 </script>
 <template>
   <Head title="Agenda" />
@@ -29,12 +35,8 @@ defineProps({ reminders: Array });
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex">
-          <div class="w-1/2">
-            <ul>
-              <li v-for="reminder in reminders">
-                {{ reminder.title }} - {{ reminder.date }}
-              </li>
-            </ul>
+          <div class="w-1/2 flex flex-col justify-center items-center p-6">
+            <ReminderTable :reminders="orderReminders(reminders)" />
           </div>
           <div class="w-1/2 flex justify-center items-center">
             <form @submit.prevent="submit" class="flex flex-col p-5">
@@ -49,6 +51,7 @@ defineProps({ reminders: Array });
                 type="datetime-local"
                 name="datetime"
                 id="datetime"
+                required
                 v-model="form.datetime"
               />
               <textarea

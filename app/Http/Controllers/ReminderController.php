@@ -48,8 +48,6 @@ class ReminderController extends Controller
         $reminder->user_id = $request->user_id;
 
         $reminder->save();
-
-        return Response::create('Reminder create', 201);
     }
 
     /**
@@ -61,6 +59,8 @@ class ReminderController extends Controller
     public function show(Reminder $reminder)
     {
         //
+        $show = Reminder::find($reminder->id);
+        return Inertia::render('Agenda_reminder', ['show' => $show]);
     }
 
     /**
@@ -84,6 +84,13 @@ class ReminderController extends Controller
     public function update(Request $request, Reminder $reminder)
     {
         //
+        $update = Reminder::find($reminder->id);
+        $update->title = $request->title;
+        $update->note = $request->note;
+        $update->date = $request->datetime;
+
+        $update->save();
+        
     }
 
     /**

@@ -42,6 +42,8 @@ Route::middleware([
     Route::post('horario', [ActivityController::class, 'store'])->name('horario.store');
     Route::get('/agenda', [ReminderController::class, 'index'])->name('agenda');
     Route::post('/agenda', [ReminderController::class, 'store'])->name('agenda.store');
+    Route::get('/agenda/{reminder}', [ReminderController::class, 'show'])->name('agenda.show');
+    Route::put('/agenda/{reminder}', [ReminderController::class, 'update'])->name('agenda.update');
 });
 
 Route::middleware([AdminAuth::class])->group(function () {
