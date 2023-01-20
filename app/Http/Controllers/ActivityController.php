@@ -48,8 +48,6 @@ class ActivityController extends Controller
         $activity->user_id = $request->user_id;
 
         $activity->save();
-
-        return Response::create('Actividad creada', 201);
     }
 
     /**

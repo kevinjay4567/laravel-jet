@@ -28,14 +28,11 @@ const orderReminders = (reminders) => {
 <template>
   <Head title="Agenda" />
   <AppLayout title="Agenda">
-    <template #header>
-      <h1>Agenda</h1>
-    </template>
 
-    <div class="py-12">
+    <div class="pt-3">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex">
-          <div class="w-1/2 flex flex-col justify-center items-center p-6">
+          <div class="w-1/2 flex flex-col justify-center items-center p-4">
             <ReminderTable :reminders="orderReminders(reminders)" />
           </div>
           <div class="w-1/2 flex justify-center items-center">
