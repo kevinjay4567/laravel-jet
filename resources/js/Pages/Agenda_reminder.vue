@@ -1,6 +1,7 @@
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
 import { defineProps, ref } from "vue";
+import DeleteIcon from "../Components/icons/DeleteIcon.vue";
 import EditIcon from "../Components/icons/EditIcon.vue";
 import PrimaryButton from "../Components/PrimaryButton.vue";
 const form = useForm({
@@ -14,24 +15,28 @@ const submit = () => {
   });
 };
 
+const deleteReminder = () => {
+  form.delete(route("agenda.destroy", props.reminder.id));
+};
 const open = ref(false);
 // get a pathname parameter
-
 
 const props = defineProps({
   reminder: Object,
   edit: Object,
 });
-
 </script>
 <template>
   <div>
     <button @click="open = true">
       <EditIcon />
     </button>
+    <button @click="deleteReminder">
+      <DeleteIcon />
+    </button>
     <div
       v-if="open"
-      class="flex flex-col justify-center items-center absolute top-1/2 left-1/4 h-2/3 w-1/2 bg-emerald-300 z-10 rounded-md"
+      class="flex flex-col justify-center items-center absolute top-32 left-1/4 h-2/3 w-1/2 bg-emerald-300 z-10 rounded-md"
     >
       <form @submit.prevent="submit" class="flex flex-col">
         <input

@@ -7,6 +7,7 @@ import CheckIcon from "../Components/icons/CheckIcon.vue";
 import ArrowLeftIcon from "../Components/icons/ArrowLeftIcon.vue";
 import ArrowRightIcon from "../Components/icons/ArrowRightIcon.vue";
 import DeleteIcon from "./icons/DeleteIcon.vue";
+import { Link } from "@inertiajs/inertia-vue3";
 
 const firstPage = ref(0);
 const lastPage = ref(5);
@@ -15,7 +16,6 @@ const props = defineProps({ reminders: Array });
 const shortReminder = (reminders) => {
   return reminders.slice(firstPage.value, lastPage.value);
 };
-
 const nextPage = () => {
   if (lastPage.value >= props.reminders.length) {
     return;
@@ -89,9 +89,6 @@ const prevPage = () => {
             <td class="px-6 py-4">
               <div class="flex gap-2">
                 <Agenda_reminder :reminder="reminder" />
-                <a href="#" class="font-medium text-red-600 hover:underline">
-                  <DeleteIcon />
-                </a>
               </div>
             </td>
           </tr>

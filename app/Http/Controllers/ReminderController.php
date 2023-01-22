@@ -102,5 +102,7 @@ class ReminderController extends Controller
     public function destroy(Reminder $reminder)
     {
         //
+        $delete = Reminder::find($reminder->id);
+        $delete->delete();
     }
 }

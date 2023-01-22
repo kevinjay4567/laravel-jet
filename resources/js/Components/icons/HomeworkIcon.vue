@@ -1,0 +1,56 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="25"
+    height="25"
+    fill="#1a9e23"
+    viewBox="0 0 256 256"
+  >
+    <rect width="256" height="256" fill="none"></rect>
+    <line
+      x1="112"
+      y1="112"
+      x2="176"
+      y2="112"
+      fill="none"
+      stroke="#1a9e23"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+    ></line>
+    <line
+      x1="112"
+      y1="144"
+      x2="176"
+      y2="144"
+      fill="none"
+      stroke="#1a9e23"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+    ></line>
+    <rect
+      x="40"
+      y="40"
+      width="176"
+      height="176"
+      rx="8"
+      fill="none"
+      stroke="#1a9e23"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+    ></rect>
+    <line
+      x1="80"
+      y1="40"
+      x2="80"
+      y2="216"
+      fill="none"
+      stroke="#1a9e23"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+    ></line>
+  </svg>
+</template>
